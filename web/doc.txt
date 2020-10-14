@@ -1,0 +1,7 @@
+web框架 flask
+
+参考资料： https://www.liaoxuefeng.com/wiki/1016959663602400/1017806472608512
+
+首页：   http://localhost:5000
+登录：   http://localhost:5000/signin
+        用户名：admin   口令： password
