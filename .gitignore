@@ -92,9 +92,11 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+# add by sunxi
 *.csv
 *.xls
 *.xlsx
+.idea
 
 # Chutzpah Test files
 _Chutzpah*
