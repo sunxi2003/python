@@ -13,8 +13,8 @@ def home():
 @app.route('/signin', methods=['GET'])
 def signin_form():
     return '''<form action="/signin" method="post">
-              <p><data name="username"></p>
-              <p><data name="password" type="password"></p>
+              <p><input name="username"></p>
+              <p><input name="password" type="password"></p>
               <p><button type="submit">Sign In</button></p>
               </form>'''
 
