@@ -1,4 +1,4 @@
-from mysql.mysqlbase import MySQL
+from mysql_opl.pymysql_utrl import MySQL
 
 mysql=MySQL('localhost','root','zt1234567','costanalysis')
 

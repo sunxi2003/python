@@ -1,7 +1,8 @@
 import pandas as pd
 from sqlalchemy import create_engine
+# DataFrame用法
 
-# 定义DataFrame
+# 创建
 data1= {'name':['张三','李四','王五'],
         'age':[17,18,19],
         'tall':[165,170,180]}

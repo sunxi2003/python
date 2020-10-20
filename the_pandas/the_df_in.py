@@ -8,9 +8,9 @@ df = pd.DataFrame(data, columns=['year', 'city', 'population', 'debt'])
 condition = ['Beijing', 'Shanghai']
 
 # in
-print("———————————— isin ————————————")
+print("———————————— in ————————————")
 print(df.loc[df['city'].isin(condition)])
 
 # not in
-print("———————————— ~ isin ————————————")
+print("———————————— not in ————————————")
 print(df.loc[~df['city'].isin(condition)])
