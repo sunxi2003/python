@@ -1,4 +1,6 @@
 from faker import Faker
+#随机函数
+
 
 #初始化
 fk = Faker(locale='zh_CN')
