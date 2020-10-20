@@ -2,7 +2,7 @@
 
 来源： https://www.liaoxuefeng.com/
 
-数据库名： blogs 
+数据库名： blogs     
 初始化脚本： blogs.sql
 
 app.py 启动项目  
