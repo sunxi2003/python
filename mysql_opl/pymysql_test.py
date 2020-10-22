@@ -1,81 +1,28 @@
-from mysql_opl.pymysql_utrl import MySQL
+from pymysql_utrl import MySQL
 
-mysql=MySQL('localhost','root','zt1234567','costanalysis')
+mysql=MySQL('127.0.0.1','root','root','tmp')
 
-#存储费用成本计算
-def storage_fee_cost_op():
-    print('存储费用计算完成')
-#耗材费用成本计算
-def consumables_fee_cost_op():
-    print('存储费用计算完成')
-#运费用计算
-def delivery_fee_cost_op():
-    print('存储费用计算完成')
-#订单操作费
-def Operating_fee_cost_op():
-    print('存储费用计算完成')
-#增值服务费
-def value_fee_cost_op():
-    print('存储费用计算完成')
+# 新增
+from faker import Faker     #随机函数库
+fk = Faker(locale='zh_CN')
+insert_sql = 'insert into user (id, name) values ("{}", "{}")'.format(fk.random_int(), fk.name())
+result = mysql.exe_sql(insert_sql); 
+print("新增行数: ", result)
 
+# 删除
+delete_sql = "delete from user where id < 500 ;"
+delete_result = mysql.exe_sql(delete_sql); 
+print("删除行数: ", delete_result)
 
-#获取存储费标准
-def get_storage_fee_st(warehouse_id,mounth):
-    sql='select * from cost_storage_plt where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    return mysql.get_all(sql)
+# 修改
+update_sql = "update user set name = '张三' where id = 4310 ;"
+update_result = mysql.exe_sql(update_sql); 
+print("修改行数: ", update_result)
 
-#获取订单操作工时费标准
-def get_operation_st(warehouse_id,mounth):
-    sql='select * from cost_order_operation where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-#获取耗材使用标准
-def get_material_st(warehouse_id,mounth):
-    sql='select * from cost_material_stand where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-#获取耗材单价标准
-def get_material_price_st(warehouse_id,mounth):
-    sql='select * from cost_material_price where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-
-#获取各仓工时计费标准
-def get_category_operation_st(warehouse_id,mounth):
-    sql='select * from cost_category_operation where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-
-
-mysqlonline=MySQL('localhost','root','zt1234567','costanalysis')
-
-
-#获取客户存储托盘数量
-def get_storage_pallet(cus):
-    sql='select * from cost_storage_plt where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    return mysql.get_all(sql)
-
-#获取客户订单操作量
-def get_storge_outstock(warehouse_id,mounth):
-    sql='select * from cost_order_operation where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-#获取客户增值服务数据
-def get_storge_add(warehouse_id,mounth):
-    sql='select * from cost_material_stand where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-#获取耗材使用数据
-def get_storge_material(warehouse_id,mounth):
-    sql='select * from cost_material_price where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
-
-#获取客户配送数据
-def get_dispatch(warehouse_id,mounth):
-    sql='select * from cost_category_operation where warehouse_id="{}" and month={}'.format(warehouse_id,mounth)
-    print(sql)
-    return mysql.get_all(sql)
+# 查询
+query_sql='select * from user order by id desc ;'
+users= mysql.get_all(query_sql)
+print(users[0])
 
 
 
@@ -83,9 +30,5 @@ def get_dispatch(warehouse_id,mounth):
 
 
 
-#print(get_storage_fee_st('123',5))
-#print(get_operation_st('123',5))
-#print(get_material_st('123',5))
-#print(get_material_price_st('123',5))
-#print(get_category_operation_st('123',5))
+
 

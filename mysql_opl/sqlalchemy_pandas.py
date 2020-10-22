@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # 初始化数据库连接
-engine=create_engine('mysql+pymysql://root:''@localhost:3306/tmp')
+engine=create_engine('mysql+pymysql://root:root@localhost:3306/tmp')
 sql = ' select * from user; '
 # read_sql_query的两个参数: sql语句， 数据库连接
 df = pd.read_sql_query(sql, engine)

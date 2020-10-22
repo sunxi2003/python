@@ -19,7 +19,7 @@ class MySQL:
         self.cursor.close()
         self.db.close()
 
-    # 查询一条数据
+    # 查询：单条数据
     def get_one(self, sql):
         res = None
         try:
@@ -31,7 +31,7 @@ class MySQL:
             print("查询失败！")
         return res
 
-    # 查询多条数据
+    # 查询：多条数据
     def get_all(self, sql):
         res = ()
         try:
@@ -43,19 +43,8 @@ class MySQL:
             print("查询失败！")
         return res
 
-    # 插入数据
-    def insert(self, sql):
-        return self.__edit(sql)
-
-    # 修改数据
-    def update(self, sql):
-        return self.__edit(sql)
-
-    # 删除数据
-    def delete(self, sql):
-        return self.__edit(sql)
-
-    def __edit(self, sql):
+    # 执行sql, 返回影响的行数
+    def exe_sql(self, sql):
         count = 0
         try:
             self.connect()

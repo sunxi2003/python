@@ -25,7 +25,6 @@ def exe_sql(sql):
     cur = engine.execute(sql)
     cur.close()
     
-    
 # 查询测试
 sql = "select * from user"
 result = get_all(sql)
