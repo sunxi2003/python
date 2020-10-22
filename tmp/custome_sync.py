@@ -15,11 +15,10 @@ oms_customers = get_oms_customers()
 print("OMS记录数:", oms_customers['customerid'].count())
 
 #==========开始更新 =============
-from mysql_opl.pymysql_utrl import MySQL
+# 合同DB 
+ht_engine=create_engine('mysql+pymysql://ct_prod:ct_prod@2018@172.20.23.29:3306/contract')
 
-# 合同DB
-mysql=MySQL('172.20.23.29','ct_prod','ct_prod@2018','contract')
-
+# 更新
 for index,row in oms_customers.iterrows():
     name = row['shortname']
     id = row['customerid']
@@ -27,5 +26,4 @@ for index,row in oms_customers.iterrows():
     tel = row['tel']
     sql = 'update contract_custom_sub set short_name="{}",link_man="{}",link_man_phone="{}" where custom_sub_no = "{}" ;'.format(name,linkman,tel,id)
     print(sql)
-    # 更新
-    mysql.update(sql)
+    ht_engine.execute(sql)  #执行sql 
