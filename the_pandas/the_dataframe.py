@@ -6,19 +6,22 @@ from sqlalchemy import create_engine
 data1= {'name':['张三','李四','王五'],
         'age':[17,18,19],
         'tall':[165,170,180]}
-students = pd.DataFrame(data1);
+students = pd.DataFrame(data1)
 print("1: students \n ", students)
 
+# 取行数
+print('行数：',len(students))
+
 # 取某一列
-ages =students['age'];
+ages =students['age']
 print("2: ages: \n",ages )
 
 # 取某一行
-row2 = students.loc[2];
+row2 = students.loc[2]
 print("3: row2: \n",row2)
 
 # 取某一单元格
-var = students.iloc[1,1];
+var = students.iloc[1,1]
 print("4：var: \n",var)
 
 # 按条件筛选
@@ -46,8 +49,8 @@ print("10: students \n",students)
 students.to_csv('student.out',index=None)
 
 #读取CSV
-stu = pd.read_csv('student.csv')
-print("11: 记录数：\n",stu['name'].count())
+stu = pd.read_csv('./the_pandas/student.csv')
+print("11: 记录数：\n",len(stu))
 
 # 保存到数据库
 engine=create_engine('mysql+pymysql://root:''@localhost:3306/tmp')
